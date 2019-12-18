@@ -21,5 +21,4 @@ JWT_COOKIE_CSRF_PROTECT = False  # False for debug purpose
 JWT_COOKIE_SECURE = False  # True for only https
 
 # GPIO Sensors
-REED_OUT = os.getenv('REED_OUT', 16)
 REED_1_IN = os.getenv('REED_1_IN', 21)
