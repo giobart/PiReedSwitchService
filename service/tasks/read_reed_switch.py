@@ -7,6 +7,8 @@ import requests
 import logging
 
 time_loop = Timeloop()
+logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='reed_switch.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 
 # Initialize GPIO with
 GPIO.setmode(GPIO.BCM)
