@@ -9,7 +9,7 @@ REQUESTS_TIMEOUT = 0.33
 
 # Microservices endpoints
 AUTH_ENDPOINT = os.getenv('AUTH_API', 'localhost:5005')
-NOTIFICATION_ENDPOINT = os.getenv('NOTIFICATION_ENDPOINT', 'https://maker.ifttt.com/trigger/{event}/with/key/'+MY_KEY)
+NOTIFICATION_ENDPOINT = os.getenv('NOTIFICATION_ENDPOINT', 'https://maker.ifttt.com/trigger/reed_switch_triggered/with/key/'+MY_KEY)
 
 # JWT
 SECRET_KEY = 'some-secret-string-CHANGE-ME'

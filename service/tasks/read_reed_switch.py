@@ -28,15 +28,15 @@ def reed_switch_sensor():
     # used to send 1 notification every 10 input.
     global counter
 
-    if counter <= 0 and reed_input == '1':
+    if counter <= 0 and reed_input == '0':
         requests.get(NOTIFICATION_ENDPOINT)
         logging.info('DOOR SEEMS OPEN - NOTIFICATION SENT')
         counter = 10
-    elif reed_input == '1':
+    elif reed_input == '0':
         counter -= 1
 
 
-@time_loop.job(interval=timedelta(seconds=1))
+@time_loop.job(interval=timedelta(seconds=3))
 def reed_switch_log():
     reed_input = GPIO.input(REED_1_IN)
     logging.info('Reed Switch Status: ' + str(reed_input))
