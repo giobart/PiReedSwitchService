@@ -16,6 +16,7 @@ GPIO.setup(REED_1_IN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 counter = 0
 
+
 @time_loop.job(interval=timedelta(seconds=1))
 def reed_switch_sensor():
     reed_input = str(GPIO.input(REED_1_IN))
@@ -29,6 +30,8 @@ def reed_switch_sensor():
         counter = 10
     elif reed_input == '1':
         counter -= 1
+    else:
+        counter = 0
 
 
 @time_loop.job(interval=timedelta(seconds=3))
