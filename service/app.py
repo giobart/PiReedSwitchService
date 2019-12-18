@@ -4,6 +4,7 @@ from flask import Flask
 from service.views import blueprints
 from service.extensions import jwt
 from flask_cors import CORS
+from service.tasks.read_reed_switch import time_loop
 
 __all__ = ('create_app',)
 
@@ -23,6 +24,8 @@ def create_app(config=None, app_name='service'):
     for bp in blueprints:
         app.register_blueprint(bp)
         bp.app = app
+
+    time_loop.start(block=False)
 
     return app
 
