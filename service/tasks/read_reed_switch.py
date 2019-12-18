@@ -37,4 +37,4 @@ def reed_switch_sensor():
 @time_loop.job(interval=timedelta(seconds=1))
 def reed_switch_log():
     reed_input = GPIO.input(REED_1_IN)
-    logging.info('Reed Switch Status: ' + reed_input)
+    logging.info('Reed Switch Status: ' + str(reed_input))
