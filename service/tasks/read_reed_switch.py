@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from timeloop import Timeloop
 from datetime import timedelta
 from service.config import REED_1_IN
-from service.config import NOTIFICATION_ENDPOINT
+from service.config import NOTIFICATION_ENDPOINT, LIGHT_ENDPOINT
 import requests
 import logging
 
@@ -25,9 +25,20 @@ def reed_switch_sensor():
     global counter
 
     if counter <= 0 and reed_input == '1':
-        requests.get(NOTIFICATION_ENDPOINT)
-        logging.info('DOOR SEEMS OPEN - NOTIFICATION SENT')
-        counter = 10
+
+        try:
+            # send notification to telegram application
+            requests.get(NOTIFICATION_ENDPOINT)
+            logging.info('DOOR SEEMS OPEN - NOTIFICATION SENT')
+
+            # turn on the light on the room
+            requests.get(LIGHT_ENDPOINT)
+            logging.info('DOOR SEEMS OPEN - LIGHT ON')
+
+            counter = 10
+        except Exception as e:
+            logging.error(str(e.__cause__))
+
     elif reed_input == '1':
         counter -= 1
     else:

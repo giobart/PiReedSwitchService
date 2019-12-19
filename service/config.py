@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-from service.api_key import MY_KEY
+from service.api_key import MY_KEY,USERNAME,PASSWORD
 
 SECRET_KEY = 'change me please'
 
@@ -10,6 +10,7 @@ REQUESTS_TIMEOUT = 0.33
 # Microservices endpoints
 AUTH_ENDPOINT = os.getenv('AUTH_API', 'localhost:5005')
 NOTIFICATION_ENDPOINT = os.getenv('NOTIFICATION_ENDPOINT', 'https://maker.ifttt.com/trigger/reed_switch_triggered/with/key/'+MY_KEY)
+LIGHT_ENDPOINT = os.getenv('LIGHT_ENDPOINT', "http://localhost:35123/lighton?username="+USERNAME+"&password="+PASSWORD)
 
 # JWT
 SECRET_KEY = 'some-secret-string-CHANGE-ME'
