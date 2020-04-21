@@ -9,7 +9,8 @@ REQUESTS_TIMEOUT = 0.33
 
 # Microservices endpoints
 AUTH_ENDPOINT = os.getenv('AUTH_API', 'localhost:5005')
-NOTIFICATION_ENDPOINT = os.getenv('NOTIFICATION_ENDPOINT', 'https://maker.ifttt.com/trigger/reed_switch_triggered/with/key/'+MY_KEY)
+NOTIFICATION_ENDPOINT = os.getenv('NOTIFICATION_ENDPOINT', 'https://maker.ifttt.com/trigger/page_refresh/with/key/'+MY_KEY)
+WEB_PAGE= 'https://s1c.altuoservizio.conad.it/conadshopstorefront/conad/it/time-selector?ts=1587505725553'
 LIGHT_ENDPOINT = os.getenv('LIGHT_ENDPOINT', "http://localhost:35123/lighton?username="+USERNAME+"&password="+PASSWORD)
 
 # JWT
