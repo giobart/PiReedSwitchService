@@ -4,15 +4,14 @@ from flask import Flask
 from service.views import blueprints
 from service.extensions import jwt
 from flask_cors import CORS
-from service.tasks.web_page_test import time_loop
+from service.tasks.read_reed_switch import time_loop
 
 __all__ = ('create_app',)
 
-
 def create_app(config=None, app_name='service'):
-    """
+    '''
     Prepares initializes the application and its utilities.
-    """
+    '''
 
     app = Flask(app_name)
     CORS(app)
