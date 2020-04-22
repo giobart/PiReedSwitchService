@@ -8,10 +8,11 @@ from service.tasks.web_page_test import time_loop
 
 __all__ = ('create_app',)
 
+
 def create_app(config=None, app_name='service'):
-    '''
+    """
     Prepares initializes the application and its utilities.
-    '''
+    """
 
     app = Flask(app_name)
     CORS(app)
